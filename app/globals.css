@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mint-green: #E8F5E9;
+  --mint-dark: #81C784;
+  --background: 150 55% 95%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 142 76% 36%;
+  --primary-foreground: 355.7 100% 97.3%;
+  --secondary: 142 76% 96%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 142 76% 96%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 142 76% 36%;
+  --radius: 1.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply text-foreground min-h-screen;
+    background: #E8F5E9;
+  }
+}
+
+.glass-effect {
+  @apply backdrop-blur-sm bg-white/90 border border-white/10 rounded-3xl;
+}
+
+.pill-card {
+  @apply backdrop-blur-sm shadow-md border border-white/10 rounded-3xl transition-all hover:shadow-lg;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+}
+
+.floating-animation {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.nav-icon {
+  @apply w-5 h-5 text-gray-500 transition-colors duration-200;
+}
+
+.nav-icon-active {
+  @apply text-primary;
+}
+
+.nav-link {
+  @apply flex flex-col items-center gap-0.5 text-gray-500 hover:text-primary transition-colors duration-200;
+}
+
+.nav-text {
+  @apply text-[10px] sm:text-xs;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+  
+  .glass-effect {
+    @apply mx-2;
+  }
+}

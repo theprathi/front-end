@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThumbsUp, ThumbsDown, Flower, Cloud } from "lucide-react";
-import confetti from "canvas-confetti";
+// import confetti from "canvas-confetti";
 
 export function FeedbackSection() {
   const [likes, setLikes] = useState(10); // Starting with some initial likes
@@ -14,18 +14,20 @@ export function FeedbackSection() {
     if (userFeedback !== "like") {
       setLikes(prev => prev + 1);
       setUserFeedback("like");
+      const element = document.createElement('div');
+      element.className = 'animate-bounce';
       setShowAnimation(true);
       
       // Trigger flower confetti
-      const colors = ["#A5D6A7", "#81C784", "#4CAF50"];
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors,
-        shapes: ["circle"],
-        scalar: 2
-      });
+      // const colors = ["#A5D6A7", "#81C784", "#4CAF50"];
+      // confetti({
+      //   particleCount: 100,
+      //   spread: 70,
+      //   origin: { y: 0.6 },
+      //   colors,
+      //   shapes: ["circle"],
+      //   scalar: 2
+      // });
 
       setTimeout(() => setShowAnimation(false), 2000);
     }

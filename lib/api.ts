@@ -1,10 +1,15 @@
 // API utility functions
 export async function uploadPrescription(file: File) {
   try {
+
+    if (!file.type.startsWith('image/')) {
+      throw new Error('Please select an image file');
+    }
+    
     const formData = new FormData();
     formData.append("prescription", file);
-
-    const response = await fetch("https://13.61.27.26/prescription", {
+    // https://13.60.42.142/prescription
+    const response = await fetch("https://fjnyf8ri4l.execute-api.us-east-2.amazonaws.com/default/prescription", {
       method: "POST",
       body: formData,
       headers: {
@@ -46,10 +51,10 @@ export async function uploadPrescription(file: File) {
 // }
 
 
-
+// https://13.60.42.142/get_patient_data/${id}
 export async function analyzePrescription(id: string) {
   try {
-    const response = await fetch(`https://13.61.27.26/get_patient_data/${id}`, {
+    const response = await fetch(`https://fjnyf8ri4l.execute-api.us-east-2.amazonaws.com/default/get_patient_data/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

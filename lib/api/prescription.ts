@@ -12,8 +12,14 @@ export async function uploadPrescription(file: File) {
     const config = {
       headers: {
         Accept: "application/json",
-        "Content-Type": "multipart/form-data",
+        // "Content-Type": "multipart/form-data",
       },
+      timeout: 300000, // 60 seconds
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      validateStatus: function (status: number) {
+        return status >= 200 && status < 500; // Don't reject if status is 2xx,3xx,4xx
+      }
     };
 
     // Send the POST request using axios

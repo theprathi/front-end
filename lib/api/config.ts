@@ -1,6 +1,6 @@
 // config.ts
 export const API_CONFIG = {
-  BASE_URL: 'https://13.61.27.26',
+  BASE_URL: 'https://fjnyf8ri4l.execute-api.us-east-2.amazonaws.com/default',
   ENDPOINTS: {
     PRESCRIPTION: '/prescription'
   },

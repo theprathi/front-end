@@ -60,7 +60,7 @@ export default function MainComp({id}:MainCompProps){
   
       // Store medicines in localStorage
       localStorage.setItem("approvedMedicines", JSON.stringify(medicines));
-    //   router.push("/medicines");
+      // router.push("/medicines");
        router.push("/beta-anouncement");
     };
   

@@ -1,8 +1,8 @@
 import { MedicationDetail } from "@/lib/types/prescription";
-
+// https://13.60.42.142/get_patient_data/
 export async function analyzePrescription(id: string) {
   try {
-    const response = await fetch("https://13.61.27.26/get_patient_data/" + id, {
+    const response = await fetch("https://fjnyf8ri4l.execute-api.us-east-2.amazonaws.com/default/get_patient_data/" + id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

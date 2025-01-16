@@ -71,9 +71,9 @@ import MainComp from "@/components/review/MainComp";
 // This is required for static export
 export async function generateStaticParams() {
   try {
-    const response = await fetch("https://13.61.27.26/patients");
+    const response = await fetch("https://fjnyf8ri4l.execute-api.us-east-2.amazonaws.com/default/patients");
     const data = await response.json();
-    
+    // https://13.60.42.142/patients
     // Return an array of objects with id parameter
     return data.patient_ids.map((id: string) => ({
       id: id,
